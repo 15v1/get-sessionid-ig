@@ -2,7 +2,7 @@ import requests
 usr=input(' Username : ')
 password=input('Password : ')
 url='https://www.instagram.com/accounts/login/ajax/'
-h={
+head={
  'accept': '*/*',
  'accept-encoding': 'gzip, deflate, br',
  'accept-language': 'ar,en-US;q=0.9,en;q=0.8',
@@ -25,7 +25,7 @@ data={
  'enc_password': f'#PWD_INSTAGRAM_BROWSER:0:1613414957:{password}',
  'queryParams': '{}',
  'optIntoOneTap': 'false'}
-req=requests.post(url,data=data, headers=h)
+req=requests.post(url,data=data, headers=head)
 if '"authenticated":true' in req.text :
  print(' Done Logged in')
  sessd=req.cookies['sessionid']
